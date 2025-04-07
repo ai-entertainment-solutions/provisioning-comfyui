@@ -24,6 +24,7 @@ NODES=(
 
 WORKFLOWS=(
     "https://gist.githubusercontent.com/robballantyne/f8cb692bdcd89c96c0bd1ec0c969d905/raw/2d969f732d7873f0e1ee23b2625b50f201c722a5/flux_dev_example.json"
+    "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/flux_gguf.json"
 )
 
 CLIP_MODELS=(
