@@ -20,6 +20,13 @@ NODES=(
     #"https://github.com/ltdrdata/ComfyUI-Manager"
     #"https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/city96/ComfyUI-GGUF" # GGUF support
+
+    # Flux + LoRA workflow support
+    "https://github.com/kijai/ComfyUI-KJNodes"
+    "https://github.com/BlenderNeko/ComfyUI_TiledKSampler"
+    # TODO: Maybe we should also add "comfyui-advanced-controlnet"
+    "https://github.com/Fannovel16/comfyui_controlnet_aux"
+    "https://github.com/rgthree/rgthree-comfy"
 )
 
 WORKFLOWS=(
