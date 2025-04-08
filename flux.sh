@@ -25,7 +25,7 @@ NODES=(
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/BlenderNeko/ComfyUI_TiledKSampler"
     # TODO: Maybe we should also add "comfyui-advanced-controlnet"
-    "https://github.com/Fannovel16/comfyui_controlnet_aux"
+    "https://github.com/Fannovel16/comfyui_controlnet_aux/"
     "https://github.com/rgthree/rgthree-comfy"
 )
 
