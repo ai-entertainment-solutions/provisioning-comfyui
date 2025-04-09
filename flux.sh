@@ -69,6 +69,7 @@ LORAS=(
 
 function provisioning_start() {
     provisioning_print_header
+    provisioning_fix_torch
     provisioning_get_apt_packages
     provisioning_get_nodes
     provisioning_get_pip_packages
@@ -99,6 +100,12 @@ function provisioning_start() {
         "${COMFYUI_DIR}/models/loras" \
         "${LORAS[@]}"
     provisioning_print_end
+}
+
+function provisioning_fix_torch() {
+    pip uninstall torch torchvision torchaudio -y
+    python -s -m pip install --pre --upgrade --no-cache-dir torch --extra-index-url https://download.pytorch.org/whl/nightly/cu128
+    python -s -m pip install --pre --upgrade --no-cache-dir torchvision --extra-index-url https://download.pytorch.org/whl/nightly/cu128
 }
 
 function provisioning_get_apt_packages() {
