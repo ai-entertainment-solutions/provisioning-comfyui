@@ -65,7 +65,7 @@ UPSCALE_MODELS=(
 
 LORAS=(
     # 3d
-    "https://huggingface.co/alvdansen/plushy-world-flux/resolve/main/plushy_world_flux_araminta_k.safetensors"
+    "https://huggingface.co/prithivMLmods/Canopus-Pixar-3D-Flux-LoRA/resolve/main/Canopus-Pixar-3D-FluxDev-LoRA.safetensors"
     # Anime
     "https://huggingface.co/prithivMLmods/Canopus-LoRA-Flux-Anime/resolve/main/Canopus-Anime-Character-Art-FluxDev-LoRA.safetensors"
     # Manga
