@@ -27,12 +27,19 @@ NODES=(
     # TODO: Maybe we should also add "comfyui-advanced-controlnet"
     "https://github.com/Fannovel16/comfyui_controlnet_aux/"
     "https://github.com/rgthree/rgthree-comfy"
+    # For flux upscale
+    "https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
+    "https://github.com/BadCafeCode/execution-inversion-demo-comfyui"
 )
 
 WORKFLOWS=(
     # "https://gist.githubusercontent.com/robballantyne/f8cb692bdcd89c96c0bd1ec0c969d905/raw/2d969f732d7873f0e1ee23b2625b50f201c722a5/flux_dev_example.json"
+    
     "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/flux_gguf.json"
+    
     "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/flux_basic.json"
+    "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/flux_basic_upscale.json"
+    
     "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/flux_lora_upscaler.json"
 )
 
@@ -50,6 +57,10 @@ UNET_MODELS=(
 
 VAE_MODELS=(
     "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/vae/diffusion_pytorch_model.safetensors"
+)
+
+UPSCALE_MODELS=(
+    "https://huggingface.co/lokCX/4x-Ultrasharp/resolve/main/4x-UltraSharp.pth"
 )
 
 LORAS=(
@@ -96,6 +107,9 @@ function provisioning_start() {
     provisioning_get_files \
         "${COMFYUI_DIR}/models/clip" \
         "${CLIP_MODELS[@]}"
+    provisioning_get_files \
+        "${COMFYUI_DIR}/models/upscale_models" \
+        "${UPSCALE_MODELS[@]}"
     provisioning_get_files \
         "${COMFYUI_DIR}/models/loras" \
         "${LORAS[@]}"
