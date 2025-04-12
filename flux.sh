@@ -40,7 +40,7 @@ WORKFLOWS=(
     "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/flux_basic.json"
     "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/flux_basic_upscale.json"
     
-    "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/flux_lora_upscaler.json"
+    "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/flux_lora_upscale.json"
 )
 
 CLIP_MODELS=(
