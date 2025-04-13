@@ -61,6 +61,7 @@ VAE_MODELS=(
 
 UPSCALE_MODELS=(
     "https://huggingface.co/lokCX/4x-Ultrasharp/resolve/main/4x-UltraSharp.pth"
+    "https://huggingface.co/dmitriy913/2x_Manga_Ora/resolve/main/2x_Manga_Ora.pth"
 )
 
 LORAS=(
@@ -69,7 +70,8 @@ LORAS=(
     # Anime
     "https://huggingface.co/prithivMLmods/Canopus-LoRA-Flux-Anime/resolve/main/Canopus-Anime-Character-Art-FluxDev-LoRA.safetensors"
     # Manga
-    "https://huggingface.co/glif-loradex-trainer/001_Detailed_Manga_Style/resolve/main/Detailed_Manga_Style.safetensors"
+    # "https://huggingface.co/glif-loradex-trainer/001_Detailed_Manga_Style/resolve/main/Detailed_Manga_Style.safetensors"
+    "https://civitai.com/api/download/models/772410?type=Model&format=SafeTensor"
     # Fantasy
     "https://huggingface.co/Shakker-Labs/FLUX.1-dev-LoRA-Dark-Fantasy/resolve/main/FLUX.1-dev-lora-Dark-Fantasy.safetensors"
     # Cartoon
