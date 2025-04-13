@@ -76,6 +76,8 @@ LORAS=(
     "https://huggingface.co/Shakker-Labs/FLUX.1-dev-LoRA-Dark-Fantasy/resolve/main/FLUX.1-dev-lora-Dark-Fantasy.safetensors"
     # Cartoon
     "https://huggingface.co/nerijs/animation2k-flux/resolve/main/animation2k_v1.safetensors"
+    # Photo
+    "https://huggingface.co/XLabs-AI/flux-RealismLora/resolve/main/lora.safetensors"
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
