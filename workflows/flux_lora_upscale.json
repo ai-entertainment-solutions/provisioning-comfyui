@@ -1,933 +1,308 @@
 {
-  "last_node_id": 182,
-  "last_link_id": 423,
-  "nodes": [
-    {
-      "id": 154,
-      "type": "Note",
-      "pos": [
-        6547,
-        183
-      ],
-      "size": [
-        379.41363525390625,
-        88
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "This output window shows the original image, you can slide your mouse across the window to compare the differences that the upscaling has done. "
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 170,
-      "type": "SetNode",
-      "pos": [
-        -1500.1920166015625,
-        952.436279296875
-      ],
-      "size": [
-        309.47906494140625,
-        116.54624938964844
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "link": 391
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "*",
-          "links": null
-        }
-      ],
-      "title": "Set_clip",
-      "properties": {
-        "previousName": ""
-      },
-      "widgets_values": [
-        "clip"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 161,
-      "type": "UnetLoaderGGUF",
-      "pos": [
-        -2240,
-        354
-      ],
-      "size": [
-        407.996337890625,
-        79.35961151123047
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "shape": 3,
-          "links": [
-            404
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "ComfyUI-GGUF",
-        "ver": "bc5223b0e37e053dbec2ea5e5f52c2fd4b8f712a",
-        "Node name for S&R": "UnetLoaderGGUF"
-      },
-      "widgets_values": [
-        "flux1-dev-Q4_0.gguf"
-      ]
-    },
-    {
-      "id": 162,
-      "type": "DualCLIPLoaderGGUF",
-      "pos": [
-        -2152.527099609375,
-        578.2838745117188
-      ],
-      "size": [
-        315,
-        106
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "shape": 3,
-          "links": [
-            391,
-            399
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "ComfyUI-GGUF",
-        "ver": "bc5223b0e37e053dbec2ea5e5f52c2fd4b8f712a",
-        "Node name for S&R": "DualCLIPLoaderGGUF"
-      },
-      "widgets_values": [
-        "clip_l.safetensors",
-        "t5xxl_fp8_e4m3fn_scaled.safetensors",
-        "flux"
-      ]
-    },
-    {
-      "id": 163,
-      "type": "KSampler",
-      "pos": [
-        -896.192138671875,
-        447.4364929199219
-      ],
-      "size": [
-        315,
-        262
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 400
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 382
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 383
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 384
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "shape": 3,
-          "links": [
-            387
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        1125598652637635,
-        "fixed",
-        30,
-        5,
-        "euler",
-        "normal",
+  "6": {
+    "inputs": {
+      "text": "anime theme masterpiece, a film still of a robot",
+      "clip": [
+        "47",
         1
       ]
     },
-    {
-      "id": 177,
-      "type": "Note",
-      "pos": [
-        -29.719261169433594,
-        691.3882446289062
-      ],
-      "size": [
-        275.9605712890625,
-        91.3953628540039
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "If the switch is set to 'false', the entire Upscaling section won't execute.\nBecause 'switch' is an actual input, it can also be automatically evaluated based on some condition during workflow execution"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 179,
-      "type": "UltimateSDUpscale",
-      "pos": [
-        -219.2117919921875,
-        931.9969482421875
-      ],
-      "size": [
-        315,
-        614
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "label": "image",
-          "type": "IMAGE",
-          "link": 419,
-          "slot_index": 0
-        },
-        {
-          "name": "model",
-          "label": "model",
-          "type": "MODEL",
-          "link": 420
-        },
-        {
-          "name": "positive",
-          "label": "positive",
-          "type": "CONDITIONING",
-          "link": 421
-        },
-        {
-          "name": "negative",
-          "label": "negative",
-          "type": "CONDITIONING",
-          "link": 422,
-          "slot_index": 3
-        },
-        {
-          "name": "vae",
-          "label": "vae",
-          "type": "VAE",
-          "link": 423,
-          "slot_index": 4
-        },
-        {
-          "name": "upscale_model",
-          "label": "upscale_model",
-          "type": "UPSCALE_MODEL",
-          "link": 416,
-          "slot_index": 5
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "label": "IMAGE",
-          "type": "IMAGE",
-          "shape": 3,
-          "links": [
-            414
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui_ultimatesdupscale",
-        "ver": "778a475dde8116a2066fe07f6c9ca15554e0b5be",
-        "Node name for S&R": "UltimateSDUpscale",
-        "aux_id": "ssitu/ComfyUI_UltimateSDUpscale"
-      },
-      "widgets_values": [
-        2.5,
-        603528822680496,
-        "randomize",
-        10,
-        1,
-        "euler",
-        "beta",
-        0,
-        "Linear",
-        512,
-        512,
-        8,
-        32,
-        "None",
-        1,
-        64,
-        8,
-        16,
-        true,
-        false
-      ]
-    },
-    {
-      "id": 182,
-      "type": "UpscaleModelLoader",
-      "pos": [
-        -649.9607543945312,
-        1193.34912109375
-      ],
-      "size": [
-        315,
-        58
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "UPSCALE_MODEL",
-          "label": "UPSCALE_MODEL",
-          "type": "UPSCALE_MODEL",
-          "shape": 3,
-          "links": [
-            416
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "UpscaleModelLoader"
-      },
-      "widgets_values": [
-        "4x-UltraSharp.pth"
-      ]
-    },
-    {
-      "id": 180,
-      "type": "SaveImage",
-      "pos": [
-        347.0377502441406,
-        215.50616455078125
-      ],
-      "size": [
-        813.943115234375,
-        849.0838623046875
-      ],
-      "flags": {},
-      "order": 16,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 417
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.26"
-      },
-      "widgets_values": [
-        "ComfyUI"
-      ]
-    },
-    {
-      "id": 178,
-      "type": "InversionDemoLazySwitch",
-      "pos": [
-        -47.71934509277344,
-        575.3880615234375
-      ],
-      "size": [
-        315,
-        98
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "on_false",
-          "type": "*",
-          "link": 418
-        },
-        {
-          "name": "on_true",
-          "type": "*",
-          "link": 414
-        },
-        {
-          "name": "switch",
-          "type": "BOOLEAN",
-          "widget": {
-            "name": "switch"
-          },
-          "link": 415
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "*",
-          "shape": 3,
-          "links": [
-            417
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "aux_id": "BadCafeCode/execution-inversion-demo-comfyui",
-        "ver": "d9eebfaa1a6a33067e8c9108ef093b48279c4cbb",
-        "Node name for S&R": "InversionDemoLazySwitch"
-      },
-      "widgets_values": [
-        false
-      ]
-    },
-    {
-      "id": 167,
-      "type": "VAEDecode",
-      "pos": [
-        -812.192138671875,
-        307.43634033203125
-      ],
-      "size": [
-        210,
-        46
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 387
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 388
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "shape": 3,
-          "links": [
-            418,
-            419
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 173,
-      "type": "LoraLoader",
-      "pos": [
-        -1716.4654541015625,
-        251.5979461669922
-      ],
-      "size": [
-        315,
-        126
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 404
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 399
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            400,
-            420
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            401,
-            403
-          ],
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "LoraLoader"
-      },
-      "widgets_values": [
-        "plushy_world_flux_araminta_k.safetensors",
-        1.25,
-        0.7000000000000001
-      ]
-    },
-    {
-      "id": 164,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -1335,
-        293
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 403
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "shape": 3,
-          "links": [
-            382,
-            421
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "a beautiful woman, 3dcndylnd style"
-      ]
-    },
-    {
-      "id": 165,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -1558.5274658203125,
-        630.2838745117188
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 401
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "shape": 3,
-          "links": [
-            383,
-            422
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 166,
-      "type": "VAELoader",
-      "pos": [
-        -891.192138671875,
-        798.4367065429688
-      ],
-      "size": [
-        315,
-        58
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "shape": 3,
-          "links": [
-            388,
-            423
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "diffusion_pytorch_model.safetensors"
-      ]
-    },
-    {
-      "id": 169,
-      "type": "EmptyLatentImage",
-      "pos": [
-        -2179.191650390625,
-        779.4367065429688
-      ],
-      "size": [
-        315,
-        106
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "shape": 3,
-          "links": [
-            384
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        768,
-        768,
-        1
-      ]
-    },
-    {
-      "id": 181,
-      "type": "PrimitiveNode",
-      "pos": [
-        -330.7191467285156,
-        660.387939453125
-      ],
-      "size": [
-        210,
-        58
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "BOOLEAN",
-          "type": "BOOLEAN",
-          "links": [
-            415
-          ],
-          "slot_index": 0
-        }
-      ],
-      "title": "Run Upscaling",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        false
-      ]
-    }
-  ],
-  "links": [
-    [
-      382,
-      164,
-      0,
-      163,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      383,
-      165,
-      0,
-      163,
-      2,
-      "CONDITIONING"
-    ],
-    [
-      384,
-      169,
-      0,
-      163,
-      3,
-      "LATENT"
-    ],
-    [
-      387,
-      163,
-      0,
-      167,
-      0,
-      "LATENT"
-    ],
-    [
-      388,
-      166,
-      0,
-      167,
-      1,
-      "VAE"
-    ],
-    [
-      391,
-      162,
-      0,
-      170,
-      0,
-      "*"
-    ],
-    [
-      399,
-      162,
-      0,
-      173,
-      1,
-      "CLIP"
-    ],
-    [
-      400,
-      173,
-      0,
-      163,
-      0,
-      "MODEL"
-    ],
-    [
-      401,
-      173,
-      1,
-      165,
-      0,
-      "CLIP"
-    ],
-    [
-      403,
-      173,
-      1,
-      164,
-      0,
-      "CLIP"
-    ],
-    [
-      404,
-      161,
-      0,
-      173,
-      0,
-      "MODEL"
-    ],
-    [
-      414,
-      179,
-      0,
-      178,
-      1,
-      "*"
-    ],
-    [
-      415,
-      181,
-      0,
-      178,
-      2,
-      "BOOLEAN"
-    ],
-    [
-      416,
-      182,
-      0,
-      179,
-      5,
-      "UPSCALE_MODEL"
-    ],
-    [
-      417,
-      178,
-      0,
-      180,
-      0,
-      "IMAGE"
-    ],
-    [
-      418,
-      167,
-      0,
-      178,
-      0,
-      "*"
-    ],
-    [
-      419,
-      167,
-      0,
-      179,
-      0,
-      "IMAGE"
-    ],
-    [
-      420,
-      173,
-      0,
-      179,
-      1,
-      "MODEL"
-    ],
-    [
-      421,
-      164,
-      0,
-      179,
-      2,
-      "CONDITIONING"
-    ],
-    [
-      422,
-      165,
-      0,
-      179,
-      3,
-      "CONDITIONING"
-    ],
-    [
-      423,
-      166,
-      0,
-      179,
-      4,
-      "VAE"
-    ]
-  ],
-  "groups": [
-    {
-      "id": 1,
-      "title": "Flux VRam Less Then 4GB",
-      "bounding": [
-        -2291,
-        3,
-        1942.645263671875,
-        1357.662109375
-      ],
-      "color": "#3f789e",
-      "font_size": 24,
-      "flags": {}
-    }
-  ],
-  "config": {},
-  "extra": {
-    "ds": {
-      "scale": 0.9849732675807678,
-      "offset": [
-        356.27795766683244,
-        -171.24799726581122
-      ]
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
     }
   },
-  "version": 0.4
+  "8": {
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "10": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "11": {
+    "inputs": {
+      "clip_name1": "t5xxl_fp16.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "12": {
+    "inputs": {
+      "unet_name": "flux1-dev.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "13": {
+    "inputs": {
+      "noise": [
+        "25",
+        0
+      ],
+      "guider": [
+        "22",
+        0
+      ],
+      "sampler": [
+        "16",
+        0
+      ],
+      "sigmas": [
+        "17",
+        0
+      ],
+      "latent_image": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "16": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "17": {
+    "inputs": {
+      "scheduler": "simple",
+      "steps": 20,
+      "denoise": 1,
+      "model": [
+        "30",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "22": {
+    "inputs": {
+      "model": [
+        "30",
+        0
+      ],
+      "conditioning": [
+        "26",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "BasicGuider"
+    }
+  },
+  "25": {
+    "inputs": {
+      "noise_seed": 442156157073982
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "26": {
+    "inputs": {
+      "guidance": 6,
+      "conditioning": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "27": {
+    "inputs": {
+      "width": 768,
+      "height": 768,
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "EmptySD3LatentImage"
+    }
+  },
+  "30": {
+    "inputs": {
+      "max_shift": 1.15,
+      "base_shift": 0.5,
+      "width": 768,
+      "height": 768,
+      "model": [
+        "47",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingFlux",
+    "_meta": {
+      "title": "ModelSamplingFlux"
+    }
+  },
+  "38": {
+    "inputs": {
+      "model_name": "4x-UltraSharp.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "39": {
+    "inputs": {
+      "upscale_by": 2.5,
+      "seed": 303515962800006,
+      "steps": 10,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "beta",
+      "denoise": 0,
+      "mode_type": "Linear",
+      "tile_width": 512,
+      "tile_height": 512,
+      "mask_blur": 8,
+      "tile_padding": 32,
+      "seam_fix_mode": "None",
+      "seam_fix_denoise": 1,
+      "seam_fix_width": 64,
+      "seam_fix_mask_blur": 8,
+      "seam_fix_padding": 16,
+      "force_uniform_tiles": true,
+      "tiled_decode": false,
+      "image": [
+        "8",
+        0
+      ],
+      "model": [
+        "47",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "41",
+        0
+      ],
+      "vae": [
+        "10",
+        0
+      ],
+      "upscale_model": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "UltimateSDUpscale",
+    "_meta": {
+      "title": "Ultimate SD Upscale"
+    }
+  },
+  "41": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "47",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "42": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "44",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "44": {
+    "inputs": {
+      "switch": false,
+      "on_false": [
+        "8",
+        0
+      ],
+      "on_true": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "47": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "Canopus-Anime-Character-Art-FluxDev-LoRA.safetensors",
+        "strength": 0.8,
+        "strengthTwo": 1.5
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "12",
+        0
+      ],
+      "clip": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Power Lora Loader (rgthree)"
+    }
+  }
 }
