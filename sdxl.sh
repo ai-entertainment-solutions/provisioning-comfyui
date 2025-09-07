@@ -25,8 +25,10 @@ NODES=(
 )
 
 WORKFLOWS=(
-    "https://raw.githubusercontent.com/vast-ai/base-image/comfyui-lora-provisioning/derivatives/pytorch/derivatives/comfyui/workflows/lora_single.json"
-    "https://raw.githubusercontent.com/vast-ai/base-image/comfyui-lora-provisioning/derivatives/pytorch/derivatives/comfyui/workflows/lora_multiple.json"
+    "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/characters/realistic_face.json"
+    "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/characters/realistic_character.json"
+    "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/characters/anime_face.json"
+    "https://raw.githubusercontent.com/ai-entertainment-solutions/provisioning-comfyui/refs/heads/main/workflows/characters/anime_character.json"
 )
 
 CLIP_MODELS=(
