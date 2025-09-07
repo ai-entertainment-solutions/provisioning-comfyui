@@ -50,6 +50,10 @@ VAE_MODELS=(
 LORA_MODELS=(
     # Furry
     "https://civitai.com/api/download/models/1780880?type=Model&format=SafeTensor"
+
+    # IPAdapter
+    "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid_sdxl_lora.safetensors"
+    "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sdxl_lora.safetensors"
 )
 
 CHECKPOINT_MODELS=(
