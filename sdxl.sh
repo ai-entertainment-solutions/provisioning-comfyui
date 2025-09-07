@@ -13,6 +13,7 @@ APT_PACKAGES=(
 PIP_PACKAGES=(
     #"package-1"
     #"package-2"
+    "insightface"
 )
 
 NODES=(
