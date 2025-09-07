@@ -31,6 +31,12 @@ CLIP_MODELS=(
     # None
 )
 
+CLIP_VISION_MODELS=(
+    ("https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors" "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors")
+    ("https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors" "CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors")
+    # ("https://huggingface.co/Kwai-Kolors/Kolors-IP-Adapter-Plus/resolve/main/image_encoder/pytorch_model.bin" "clip-vit-large-patch14-336.bin")
+)
+
 UNET_MODELS=(
     # None
 )
@@ -62,6 +68,10 @@ function provisioning_start() {
     provisioning_get_files \
         "${COMFYUI_DIR}/models/checkpoints" \
         "${CHECKPOINT_MODELS[@]}"
+
+    provisioning_get_files_and_rename \
+        "${COMFYUI_DIR}/models/clip_vision" \
+        "${CLIP_VISION_MODELS[@]}"
 
     provisioning_get_files \
         "${COMFYUI_DIR}/models/loras" \
@@ -176,6 +186,51 @@ function provisioning_download() {
     else
         wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
     fi
+}
+
+function provisioning_download_and_rename() {
+    local url="$1"
+    local target_dir="$2"
+    local filename="$3"
+    local chunk_size="${4:-4M}"
+
+    if [[ -n $HF_TOKEN && $url =~ ^https://([a-zA-Z0-9_-]+\.)?huggingface\.co(/|$|\?) ]]; then
+        auth_token="$HF_TOKEN"
+    elif [[ -n $CIVITAI_TOKEN && $url =~ ^https://([a-zA-Z0-9_-]+\.)?civitai\.com(/|$|\?) ]]; then
+        auth_token="$CIVITAI_TOKEN"
+    fi
+
+    local full_path="${target_dir}/${filename}"
+
+    if [[ -n $auth_token ]]; then
+        wget --header="Authorization: Bearer $auth_token" -qnc --content-disposition --show-progress -e dotbytes="$chunk_size" -O "$full_path" "$url"
+    else
+        wget -qnc --content-disposition --show-progress -e dotbytes="$chunk_size" -O "$full_path" "$url"
+    fi
+}
+
+function provisioning_get_files_and_rename() {
+    if [[ -z $2 ]]; then return 1; fi
+
+    local dir="$1"
+    mkdir -p "$dir"
+    shift
+    local arr=("$@")
+    printf "Downloading %s file(s) with custom names to %s...\n" "${#arr[@]}" "$dir"
+
+    for tuple in "${arr[@]}"; do
+        # Parse the tuple: extract URL and filename
+        local url=$(echo "$tuple" | sed -n 's/.*("\([^"]*\)".*/\1/p')
+        local filename=$(echo "$tuple" | sed -n 's/.*"\([^"]*\)".*/\1/p')
+
+        if [[ -n "$url" && -n "$filename" ]]; then
+            printf "Downloading: %s -> %s\n" "$url" "$filename"
+            provisioning_download_and_rename "$url" "$dir" "$filename"
+            printf "\n"
+        else
+            printf "Warning: Could not parse tuple: %s\n" "$tuple"
+        fi
+    done
 }
 
 if [[ ! -f /.noprovisioning ]]; then
