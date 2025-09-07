@@ -38,8 +38,6 @@ VAE_MODELS=(
 )
 
 LORA_MODELS=(
-    # Anime
-    "https://civitai.com/api/download/models/372033?type=Model&format=SafeTensor&size=pruned&fp=fp16"
     # Furry
     "https://civitai.com/api/download/models/1780880?type=Model&format=SafeTensor"
 )
@@ -47,6 +45,8 @@ LORA_MODELS=(
 CHECKPOINT_MODELS=(
     "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0_0.9vae.safetensors?download=true"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0_0.9vae.safetensors?download=true"
+    # Anime
+    "https://civitai.com/api/download/models/372033?type=Model&format=SafeTensor&size=pruned&fp=fp16"
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
