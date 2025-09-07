@@ -13,6 +13,8 @@ APT_PACKAGES=(
 PIP_PACKAGES=(
     #"package-1"
     #"package-2"
+
+    # Required for ipadapter
     "insightface"
 )
 
@@ -57,6 +59,12 @@ CHECKPOINT_MODELS=(
     "https://civitai.com/api/download/models/372033?type=Model&format=SafeTensor&size=pruned&fp=fp16"
 )
 
+IPADAPTER_MODELS=(
+    "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid_sdxl.bin?download=true" # SDXL base FaceID
+    "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sdxl.bin?download=true" # SDXL plus v2
+    "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-portrait_sdxl.bin?download=true" # SDXL text prompt style transfer
+)
+
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
 function provisioning_start() {
@@ -76,6 +84,12 @@ function provisioning_start() {
     provisioning_get_files \
         "${COMFYUI_DIR}/models/loras" \
         "${LORA_MODELS[@]}"
+
+    ipadapter_dir="${COMFYUI_DIR}/models/ipadapter"
+    mkdir -p "${ipadapter_dir}"
+    provisioning_get_files \
+        "${ipadapter_dir}" \
+        "${IPADAPTER_MODELS[@]}"
 
     workflows_dir="${COMFYUI_DIR}/user/default/workflows"
     mkdir -p "${workflows_dir}"
