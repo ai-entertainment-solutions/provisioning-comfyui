@@ -50,6 +50,8 @@ VAE_MODELS=(
 )
 
 LORA_MODELS=(
+    # Realistic
+    "https://civitai.com/api/download/models/2098673?type=Model&format=SafeTensor"
     # Furry
     "https://civitai.com/api/download/models/1780880?type=Model&format=SafeTensor"
 
