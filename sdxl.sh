@@ -37,9 +37,9 @@ CLIP_MODELS=(
 )
 
 CLIP_VISION_MODELS=(
-    ("https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors" "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors")
-    ("https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors" "CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors")
-    # ("https://huggingface.co/Kwai-Kolors/Kolors-IP-Adapter-Plus/resolve/main/image_encoder/pytorch_model.bin" "clip-vit-large-patch14-336.bin")
+    '("https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors", "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors")'
+    '("https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors", "CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors")'
+    # '("https://huggingface.co/Kwai-Kolors/Kolors-IP-Adapter-Plus/resolve/main/image_encoder/pytorch_model.bin", "clip-vit-large-patch14-336.bin")'
 )
 
 UNET_MODELS=(
