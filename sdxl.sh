@@ -16,6 +16,8 @@ PIP_PACKAGES=(
 
     # Required for ipadapter
     "insightface"
+    "onnxruntime"
+    "onnxruntime-gpu"
 )
 
 NODES=(
