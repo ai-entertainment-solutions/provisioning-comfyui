@@ -25,6 +25,8 @@ NODES=(
     #"https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
     "https://github.com/Acly/comfyui-tooling-nodes.git"
+    # For better generations
+    "https://github.com/pamparamm/sd-perturbed-attention.git"
 )
 
 WORKFLOWS=(
@@ -66,6 +68,10 @@ LORA_MODELS=(
 CHECKPOINT_MODELS=(
     "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0_0.9vae.safetensors?download=true"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0_0.9vae.safetensors?download=true"
+    # epicrealismXL_pureFix.safetensors
+    "https://civitai.com/api/download/models/2514955?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+    # biglust17_v17.safetensors
+    "https://civitai.com/api/download/models/1620724?type=Model&format=SafeTensor&size=pruned&fp=fp16"
     # Realistic face
     "https://civitai.com/api/download/models/187992?type=Model&format=SafeTensor&size=full&fp=fp16"
     # Ralistic character
