@@ -61,6 +61,8 @@ LORA_MODELS=(
     "https://civitai.com/api/download/models/2098673?type=Model&format=SafeTensor"
     # Furry
     "https://civitai.com/api/download/models/1780880?type=Model&format=SafeTensor"
+    # Cute faces
+    "https://civitai.com/api/download/models/131616?type=Model&format=SafeTensor"
 
     # IPAdapter
     "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid_sdxl_lora.safetensors"
