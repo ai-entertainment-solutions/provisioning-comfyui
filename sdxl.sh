@@ -25,6 +25,8 @@ NODES=(
     #"https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
     "https://github.com/Acly/comfyui-tooling-nodes.git"
+    "https://github.com/cubiq/ComfyUI_essentials"
+    "https://github.com/rgthree/rgthree-comfy.git"
     # For better generations
     "https://github.com/pamparamm/sd-perturbed-attention.git"
 )
